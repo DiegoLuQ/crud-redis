@@ -9,6 +9,10 @@ HOST = os.getenv('REDIS_HOST')
 redis_client = redis.Redis(host=HOST, port=PORT, decode_responses=True, db=0)
 
 @app.get('/')
+def home():
+    return {"Hola":"Mundo"}
+
+@app.get('/show')
 def show_data():
     data = []
     for key in redis_client.keys():
@@ -23,5 +27,5 @@ async def delete_data(data:str):
     return True
 
 
-if __name__ == "__main__":
-    uvicorn.run(app, host="127.0.0.1", port=8081)
+# if __name__ == "__main__":
+#     uvicorn.run(app, host="127.0.0.1", port=8081)

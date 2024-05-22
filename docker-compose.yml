@@ -29,8 +29,6 @@ services:
     depends_on:
       - app
 
-
-
 networks:
   default:
     name: web_private_red_webapps
