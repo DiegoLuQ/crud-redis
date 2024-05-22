@@ -11,8 +11,8 @@ services:
     expose:
       - 90
     environment:
-      - REDIS_HOST=localhost
-      - REDIS_PORT=6379
+      - REDIS_HOST=${HOST}
+      - REDIS_PORT=${PORT}
     volumes:
       - ./app:/app/
 
@@ -31,5 +31,6 @@ services:
 
 networks:
   default:
-    name: web_private_red_webapps
+    name: ${NETWORK}
     external: true
+

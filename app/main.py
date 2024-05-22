@@ -10,7 +10,8 @@ redis_client = redis.Redis(host=HOST, port=PORT, decode_responses=True, db=0)
 
 @app.get('/')
 def home():
-    return {"Hola":"Mundo"}
+    print(2380)
+    return {"Hola":"23744"}
 
 @app.get('/show')
 def show_data():
