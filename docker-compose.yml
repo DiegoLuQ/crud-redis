@@ -31,6 +31,6 @@ services:
 
 networks:
   default:
-    name: docker-redis_default #nombre del network
+    name: web_private_red_webapps # docker-redis_default # web_private_red_webapps
     external: true
 
