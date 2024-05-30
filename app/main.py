@@ -3,9 +3,10 @@ import redis
 import uvicorn
 import json
 import os
+from config import settings as sett
 app = FastAPI()
-PORT = int(os.getenv('REDIS_PORT'))
-HOST = os.getenv('REDIS_HOST')
+PORT = sett.PORT
+HOST = sett.HOST
 redis_client = redis.Redis(host=HOST, port=PORT, decode_responses=True, db=0)
 
 @app.get('/')
@@ -28,5 +29,5 @@ async def delete_data(data:str):
     return True
 
 
-# if __name__ == "__main__":
-#     uvicorn.run(app, host="127.0.0.1", port=8081)
+if __name__ == "__main__":
+    uvicorn.run(app, host="127.0.0.1", port=8081)
