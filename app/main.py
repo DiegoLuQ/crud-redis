@@ -1,13 +1,9 @@
 from fastapi import FastAPI, HTTPException
 import redis
-import uvicorn
 import json
-import os
 from config import settings as sett
 app = FastAPI()
-PORT = sett.PORT
-HOST = sett.HOST
-redis_client = redis.Redis(host=HOST, port=PORT, decode_responses=True, db=0)
+redis_client = redis.Redis(host=str(sett.HOST), port=int(sett.PORT), decode_responses=True, db=0)
 
 @app.get('/')
 def home():
